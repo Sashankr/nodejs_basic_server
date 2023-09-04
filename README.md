@@ -20,3 +20,11 @@ Add a new user on this page.
 After adding a new user, this page shows list of added users.
 
 ![Users List](./screenshots/list.png)
+
+### Steps to run this project locally.
+
+Pre-requisites : Have latest node.js installed on your system.
+
+1. Clone this repository.
+2. Run `node app.js`
+3. Go to browser and enter http://localhost:3000

@@ -1,3 +1,5 @@
+const usersList = [];
+
 const routesHandler = (req, res) => {
   const { url, method } = req;
   console.log(url, method);
@@ -26,6 +28,19 @@ const routesHandler = (req, res) => {
         </html>
     `);
     return res.end();
+  } else if (url === "/create-user" && method === "POST") {
+    const body = [];
+    req.on("data", (chunks) => {
+      body.push(chunks);
+    });
+    req.on("end", () => {
+      const data = Buffer.concat(body).toString();
+      const username = data.split("=")[1];
+      usersList.push(username);
+      console.log(usersList);
+      res.redirect("/users");
+      return res.end();
+    });
   }
 };
 
